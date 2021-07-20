@@ -1,0 +1,25 @@
+version: '3'
+services:
+  postgres:
+    #version postgres 9.6.9
+    image: postgres
+    container_name: "postgres"
+    restart: always
+    volumes:
+      - ./app:/dados/postgree/
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_MULTIPLE_DATABASES: postgres
+    ports:
+      - 54320:5432
+
+  #micro_produto:
+  #  build: ./
+  #  hostname: micro_produto
+  #  container_name: "micro_produto"
+  #  restart: always
+  #  ports:
+  #    - 8085:8080
+  #  links:
+  #    - postgres
