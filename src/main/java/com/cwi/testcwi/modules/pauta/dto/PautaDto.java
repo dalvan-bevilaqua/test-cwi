@@ -1,8 +1,16 @@
 package com.cwi.testcwi.modules.pauta.dto;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
+import java.util.Date;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Data
 public class PautaDto implements Serializable {
 
   private static final long serialVersionUID = 2234098328237689726L;
@@ -10,5 +18,5 @@ public class PautaDto implements Serializable {
   private String nome;
   private String descricao;
   private String flEmVotacao;
-  private Timestamp dtFechamento;
+  private Date dtFechamento;
 }

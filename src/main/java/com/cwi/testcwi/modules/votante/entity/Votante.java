@@ -1,7 +1,6 @@
-package com.cwi.testcwi.modules.pauta.entity;
+package com.cwi.testcwi.modules.votante.entity;
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,18 +18,14 @@ import lombok.Setter;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "pauta")
-public class Pauta implements Serializable {
+@Table(name = "votante")
+public class Votante implements Serializable {
 
-  private static final long serialVersionUID = -3096091941864799543L;
-
+  private static final long serialVersionUID = 7109773070447835255L;
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @GeneratedValue(strategy = GenerationType.AUTO)
   private Integer id;
 
-  private String nome;
-  private String descricao;
-  private String flEmVotacao;
-  private Date dtInicio;
-  private Date dtFechamento;
+  private Integer cpf;
+  private Integer idPauta;
 }
