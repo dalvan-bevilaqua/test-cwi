@@ -1,4 +1,4 @@
-package com.cwi.testcwi.modules.associado.dto;
+package com.cwi.testcwi.modules.votacao.associado.dto;
 
 import java.io.Serializable;
 import lombok.AllArgsConstructor;

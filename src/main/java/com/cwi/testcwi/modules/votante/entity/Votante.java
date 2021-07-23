@@ -22,10 +22,11 @@ import lombok.Setter;
 public class Votante implements Serializable {
 
   private static final long serialVersionUID = 7109773070447835255L;
+
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
 
-  private Integer cpf;
+  private String cpf;
   private Integer idPauta;
 }

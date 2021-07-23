@@ -1,11 +1,19 @@
 package com.cwi.testcwi.modules.votacao.dto;
 
-import java.sql.Timestamp;
+import java.util.Date;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Builder
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class VotoDto {
 
   private Integer id;
   private Integer idPauta;
   private String voto;
-  private Timestamp dtVoto;
+  private Date dtVoto;
 }

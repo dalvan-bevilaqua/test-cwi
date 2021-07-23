@@ -15,13 +15,13 @@ public class VotanteServiceImpl implements VotanteService {
   private final VotanteRepository votanteRepository;
 
   @Override
-  public boolean validarSeJaVotou(Integer cpf, Integer idPauta) {
+  public boolean validarSeJaVotou(String cpf, Integer idPauta) {
     var votante = votanteRepository.findOneByCpfAndIdPauta(cpf, idPauta);
     return Objects.isNull(votante);
   }
 
   @Override
-  public void gravarVotante(Integer cpf, Integer idPauta) {
+  public void gravarVotante(String cpf, Integer idPauta) {
     votanteRepository.save(Votante.builder().cpf(cpf).idPauta(idPauta).build());
   }
 }

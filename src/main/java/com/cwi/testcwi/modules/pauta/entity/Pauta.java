@@ -1,11 +1,17 @@
 package com.cwi.testcwi.modules.pauta.entity;
 
+import com.cwi.testcwi.modules.enums.EnumSimNao;
+import com.cwi.testcwi.modules.votacao.entity.Voto;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,4 +39,15 @@ public class Pauta implements Serializable {
   private String flEmVotacao;
   private Date dtInicio;
   private Date dtFechamento;
+
+  @OneToMany(fetch = FetchType.LAZY)
+  @JoinColumn(name = "idPauta", insertable = false, updatable = false)
+  private List<Voto> votos;
+
+  public Boolean isEmVotacao() {
+    if (EnumSimNao.S.name().equals(this.flEmVotacao)) {
+      return true;
+    }
+    return false;
+  }
 }

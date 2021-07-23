@@ -2,7 +2,7 @@ package com.cwi.testcwi.modules.votante.service;
 
 public interface VotanteService {
 
-  boolean validarSeJaVotou(Integer cpf, Integer idPauta);
+  boolean validarSeJaVotou(String cpf, Integer idPauta);
 
-  void gravarVotante(Integer cpf, Integer idPauta);
+  void gravarVotante(String cpf, Integer idPauta);
 }

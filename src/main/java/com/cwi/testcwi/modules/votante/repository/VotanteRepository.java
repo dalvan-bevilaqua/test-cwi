@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface VotanteRepository extends JpaRepository<Votante, Integer> {
 
-  Votante findOneByCpfAndIdPauta(Integer cpf, Integer idPauta);
+  Votante findOneByCpfAndIdPauta(String cpf, Integer idPauta);
 }

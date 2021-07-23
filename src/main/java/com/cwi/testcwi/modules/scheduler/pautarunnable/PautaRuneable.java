@@ -1,4 +1,4 @@
-package com.cwi.testcwi.modules.scheduler.PautaRunnable;
+package com.cwi.testcwi.modules.scheduler.pautarunnable;
 
 import com.cwi.testcwi.modules.pauta.service.PautaService;
 

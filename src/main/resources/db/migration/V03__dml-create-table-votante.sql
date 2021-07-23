@@ -1,0 +1,8 @@
+CREATE TABLE votante (
+  id serial,
+  cpf VARCHAR (11) NOT NULL,
+  id_pauta INTEGER
+);
+
+ALTER TABLE votante ADD CONSTRAINT PKVOTANTE PRIMARY KEY (id);
+ALTER TABLE votante add CONSTRAINT FK1VOTANTE FOREIGN KEY (id_pauta) REFERENCES pauta(id);
