@@ -19,7 +19,6 @@ http://localhost:8089/v1/pauta/1/iniciar
 }
 
 http://localhost:8089/v1/voto
-
 {
   "idPauta":1,
   "voto":"S",
@@ -27,6 +26,9 @@ http://localhost:8089/v1/voto
 }
 
 select * from pauta
+
 select * from voto
+
 select * from votante
+
 select * from pautaresultado 
