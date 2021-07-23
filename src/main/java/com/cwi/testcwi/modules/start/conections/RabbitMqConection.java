@@ -37,16 +37,16 @@ public class RabbitMqConection {
     DirectExchange troca = this.trocaDireta();
 
     Binding ligacaoUm = this.relacionamento(fila, troca);
-    //Binding ligacaoDois = this.relacionamento(filaDois, troca);
+
 
     // criando as filas no rabbit
     this.amqpAdmin.declareQueue(fila);
-    //this.amqpAdmin.declareQueue(filaDois);
+
 
     // declara a exchage, se existir não cria
     this.amqpAdmin.declareExchange(troca);
 
     this.amqpAdmin.declareBinding(ligacaoUm);
-    //this.amqpAdmin.declareBinding(ligacaoDois);
+
   }
 }
