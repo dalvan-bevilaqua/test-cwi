@@ -5,9 +5,11 @@ import org.springframework.amqp.core.AmqpAdmin;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.core.Queue;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 @Component
+@ConditionalOnProperty(name = "amqp.bpm.enabled", havingValue = "true")
 public class RabbitMqConection {
 
   private static final String NOME_EXCHANGE = "amq.direct";
@@ -30,7 +32,7 @@ public class RabbitMqConection {
         fila.getName(), Binding.DestinationType.QUEUE, troca.getName(), fila.getName(), null);
   }
 
-   @PostConstruct
+  @PostConstruct
   private void adiciona() {
     Queue fila = this.fila(Fila.RESULTADO_VOTACAO.name());
 
@@ -38,15 +40,12 @@ public class RabbitMqConection {
 
     Binding ligacaoUm = this.relacionamento(fila, troca);
 
-
     // criando as filas no rabbit
     this.amqpAdmin.declareQueue(fila);
-
 
     // declara a exchage, se existir não cria
     this.amqpAdmin.declareExchange(troca);
 
     this.amqpAdmin.declareBinding(ligacaoUm);
-
   }
 }

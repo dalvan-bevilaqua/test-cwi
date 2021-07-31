@@ -1,5 +1,5 @@
 CREATE TABLE pautaresultado (
-  id serial,
+  id serial CONSTRAINT PKPAUTARESULTADO PRIMARY KEY,
   id_pauta INTEGER,
   nm_pauta VARCHAR (30) NOT NULL,
   de_pauta VARCHAR(300) NOT NULL,
@@ -7,4 +7,4 @@ CREATE TABLE pautaresultado (
   votos_nao INTEGER
 );
 
-ALTER TABLE pautaresultado ADD CONSTRAINT PKPAUTARESULTADO PRIMARY KEY (id);
+ALTER TABLE voto add CONSTRAINT FK1PAUTARESULTADO FOREIGN KEY (id_pauta) REFERENCES pauta(id);

@@ -1,9 +1,8 @@
 CREATE TABLE voto (
-  id serial,
+  id serial CONSTRAINT PKVOTACAO PRIMARY KEY,
   id_pauta INTEGER NOT NULL,
   voto char(1) NOT NULL CHECK (voto IN ('S', 'N')),
   dt_voto TIMESTAMP NOT NULL
 );
 
-ALTER TABLE voto ADD CONSTRAINT PKVOTACAO PRIMARY KEY (id);
 ALTER TABLE voto add CONSTRAINT FK1VOTO FOREIGN KEY (id_pauta) REFERENCES pauta(id);
