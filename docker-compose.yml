@@ -14,27 +14,66 @@ services:
     ports:
       - 54320:5432
 
-  rabbitmq:
-    image: rabbitmq:3-management
-    container_name: rabbitmq
-    restart: always
-    ports:
-      - "5672:5672"
-      - "15672:15672"
+  #rabbitmq:
+  #  image: rabbitmq:3-management
+  #  container_name: rabbitmq
+  #  restart: always
+  #  ports:
+  #    - "5672:5672"
+  #    - "15672:15672"
+  #  volumes:
+  #    - ./app:/dados/rabbitmq/
+  #  environment:
+  #    - RABBITMQ_DEFAULT_USER=admin
+  #    - RABBITMQ_DEFAULT_PASS=admin
+
+  #micro_service:
+  #  build: ./
+  #  hostname: micro_service
+  #  container_name: "micro_service"
+  #  restart: always
+  #  ports:
+  #    - 8085:8080
+  #  links:
+  #    - postgres
+  #    - rabbitmq
+  #    - graylog
+
+  mongo:
+    image: mongo:3
+    container_name: mongo
     volumes:
-      - ./app:/dados/rabbitmq/
+      - ./app:/dados/mongo/
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.8.2
+    container_name: elastic
+    volumes:
+      - ./app:/dados/elastic/
     environment:
-      - RABBITMQ_DEFAULT_USER=admin
-      - RABBITMQ_DEFAULT_PASS=admin
+      - http.host=0.0.0.0
+      - transport.host=localhost
+      - network.host=0.0.0.0
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
 
-  micro_service:
-    build: ./
-    hostname: micro_service
-    container_name: "micro_service"
-    restart: always
+  graylog:
+    container_name: graylog
+    image: graylog/graylog:4.1.1
+    volumes:
+      - ./app:/dados/greylog/
+    environment:
+      - TZ=America/Sao_Paulo
+      - GRAYLOG_ROOT_TIMEZONE=America/Sao_Paulo
+      - GRAYLOG_PASSWORD_SECRET=suasenhacomominimodecaracteres
+      - GRAYLOG_HTTP_EXTERNAL_URI=http://127.0.0.1:9000/
+      - GRAYLOG_ROOT_PASSWORD_SHA2=8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918
+      - network.host=0.0.0.0
+    depends_on:
+      - mongo
+      - elasticsearch
     ports:
-      - 8085:8080
+      - "12201:12201"
+      - "9000:9000"
     links:
-      - postgres
-      - rabbitmq
-
+      - elasticsearch
+      - mongo
