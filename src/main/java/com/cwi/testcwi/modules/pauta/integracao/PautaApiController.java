@@ -29,7 +29,7 @@ public class PautaApiController {
   @Valid
   @GetMapping
   @ResponseStatus(HttpStatus.OK)
-  @ApiOperation(value = "Create Pauta", code = 200, tags = "test")
+  @ApiOperation(value = "Create Pauta", code = 200, tags = "Create Pauta API")
   @ApiResponses({
     @ApiResponse(code = 200, message = "Create Pauta"),
     @ApiResponse(code = 400, message = "Erro ao criar pauta"),
@@ -54,13 +54,13 @@ public class PautaApiController {
         name = "flEmVotacao",
         dataType = "string",
         paramType = "query",
-        value = "em votação (s/n)"),
+        value = "em votação (S..N)"),
     @ApiImplicitParam(
         name = "dtFechamento",
         dataType = "date",
         paramType = "query",
         value = "Data de fechamento (2021-07-21T22:45:35.566-0300)",
-        defaultValue = "0")
+        defaultValue = "null")
   })
   public PautaDto create(@RequestBody CreatePautaDto createPautaDto) {
     return pautaService.create(createPautaDto);
