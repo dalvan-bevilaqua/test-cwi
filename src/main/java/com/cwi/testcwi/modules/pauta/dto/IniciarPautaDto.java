@@ -18,4 +18,5 @@ public class IniciarPautaDto implements Serializable {
 
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private Date dtFechamento;
+
 }

@@ -17,7 +17,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
-class PautaControllerTest {
+class PautaApiControllerTest {
 
   @Autowired private MockMvc mockMvc;
 
@@ -30,7 +30,7 @@ class PautaControllerTest {
 
     mockMvc
         .perform(
-            post("v1/pauta")
+            post("/v1/pauta")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(createPautaDto)))
         .andExpect(status().isOk())
