@@ -1,4 +1,4 @@
-# Requisitos: Java 11, Docker ou Postgree.
+# Requisitos: Java 12, Docker ou Postgree.
 
 Usuários Docker: abrir no cmd a raiz da pasta e executar docker-compose up.
 
