@@ -8,11 +8,11 @@
 		<version>2.4.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.cwi</groupId>
-	<artifactId>testcwi</artifactId>
+	<groupId>com.teste</groupId>
+	<artifactId>micro</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>testcwi</name>
-	<description>testcwi</description>
+	<name>micro</name>
+	<description>Microservice project for spring boot</description>
 	<properties>
 		<java.version>12</java.version>
 
@@ -79,12 +79,6 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
 		</dependency>
 
 		<dependency>
@@ -275,9 +269,9 @@
 								<rule>
 									<element>CLASS</element>
 									<excludes>
-										<exclude>com.cwi.testcwi.exception.*</exclude>
-										<exclude>com.cwi.testcwi.handler.*</exclude>
-										<exclude>com.cwi.testcwi.helper.*</exclude>
+										<exclude>com.teste.micro.exception.*</exclude>
+										<exclude>com.teste.micro.handler.*</exclude>
+										<exclude>com.teste.micro.helper.*</exclude>
 									</excludes>
 									<limits>
 										<limit>
